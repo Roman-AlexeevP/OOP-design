@@ -100,14 +100,14 @@ class BoundedStack:
             self.pop_status = self.POP_ERR
 
     def is_full(self) -> bool:
-        return self.size() < self.max_size
+        return self.size() > (self.max_size - 1)
 
     def push(self, value):
-        if not self.is_full():
+        if self.is_full():
+            self.push_status = self.PUSH_ERR
+        else:
             self.stack.append(value)
             self.push_status = self.PUSH_OK
-        else:
-            self.push_status = self.PUSH_ERR
 
     def get_peek_status(self) -> int:
         return self.peek_status
