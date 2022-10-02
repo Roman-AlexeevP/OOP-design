@@ -1,15 +1,15 @@
 class ATSBloomFilter:
 
     # постусловие: создан битовый массив размер filter_len
-    def __init__(self, filter_len):
+    def __init__(self, filter_len: int):
         raise NotImplementedError
 
     # постусловие: в фильтр занесено значение value
-    def add(self, value):
+    def add(self, value: str):
         raise NotImplementedError
 
     # возвращает логическое значение: наличие в фильтре значения
-    def get(self, value):
+    def get(self, value: str) -> bool:
         raise NotImplementedError
 
 class BloomFilter:
